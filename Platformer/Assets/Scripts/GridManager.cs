@@ -82,6 +82,7 @@ public class GridManager : MonoBehaviour {
         
     }
 
+	//Inicializa array de Cena
     public void InitializeItems()
     {
         items = new GameObject[xSize, ySize];

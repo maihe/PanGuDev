@@ -17,20 +17,24 @@ public class LevelManager : MonoBehaviour  {
     public void Save() {        
 
         //zerando as posicoes
-        //por enquanto esta porco, pois faco dois laços, mas como no projeto final tera o griditem.cs cuidando de cada posicao nao tera este problema        
+        //por enquanto esta porco, pois faco dois laços, 
+		//mas como no projeto final tera o griditem.cs cuidando de cada posicao nao tera este problema
+
+		//for do item level sendo salvo em objeto "Serializavel"
         for (int i = 0; i < levelData.m_data.Length; i++)
         {
             levelData.m_data[i] = 0;
         }
         
+		//for do array de digitos
         foreach (var tile in gridManager.items)
         {
             if(tile != null) {             
                 levelData.m_data[
-                    Convert.ToInt32(tile.transform.position.x) +
-                    Convert.ToInt32(tile.transform.position.y) * levelData.m_width
+					Convert.ToInt32(tile.transform.position.x) + 
+					(Convert.ToInt32(tile.transform.position.y) * levelData.m_width)
                 ] = Convert.ToInt32(tile.name.Substring(0, 1));
-            }
+            } //e se for?
         }
 
         SaveSerialize();
@@ -50,6 +54,7 @@ public class LevelManager : MonoBehaviour  {
         } 
     }
 
+	//Load from Dick
     public void LoadSerialize()
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -74,6 +79,7 @@ public class LevelManager : MonoBehaviour  {
         //Carregando dados do arquivo salvo em disco
         LoadSerialize();
 
+		//Poe o serializado no GrigManager
         for (int x = 0; x < levelData.m_width; x++)
         {
             for (int y = 0; y < levelData.m_height; y++)
@@ -88,6 +94,8 @@ public class LevelManager : MonoBehaviour  {
         }        
     }
 
+
+	//Destroi tile por tile da Cena
     public void DestroyLevel()
     {
         foreach (var tile in gridManager.items)
