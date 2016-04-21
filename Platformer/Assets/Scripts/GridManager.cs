@@ -8,7 +8,6 @@ public class GridManager : MonoBehaviour {
     public float scale = 1f;
     public GameObject[,] items;
     public int xSize, ySize;
-    public bool canInstantiate = true;
 
     void Awake()
     {
@@ -18,7 +17,8 @@ public class GridManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if(canInstantiate)
+		
+		if(canInstantiate())
         {
             if (Input.GetMouseButton(0))
             {
@@ -37,6 +37,14 @@ public class GridManager : MonoBehaviour {
             }
         }        
     }
+
+	//TODO add possible conditions here
+	bool canInstantiate(){
+		bool canInstantiate = true;
+
+		return canInstantiate;
+	}
+
 
     //This method returns the game object that was clicked using Raycast 2D
     GameObject ClickSelect()
