@@ -2,45 +2,27 @@ Initialize engine version: 5.2.2f1 (3757309da7e7)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 540M (ID=0xdf4)
+    Renderer: NVIDIA GeForce GT 650M   (ID=0xfd1)
     Vendor:   NVIDIA
-    VRAM:     979 MB
+    VRAM:     3072 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.105 seconds
-desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+Platform assembly: C:\repos\PanGuDev\Compilado\maker_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\repos\PanGuDev\Compilado\maker_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\repos\PanGuDev\Compilado\maker_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\repos\PanGuDev\Compilado\maker_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\repos\PanGuDev\Compilado\maker_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\repos\PanGuDev\Compilado\maker_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\repos\PanGuDev\Compilado\maker_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\repos\PanGuDev\Compilado\maker_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\repos\PanGuDev\Compilado\maker_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\repos\PanGuDev\Compilado\maker_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\repos\PanGuDev\Compilado\maker_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.049 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: C:\Users\JobFera\Desktop\Compilado\maker_Data\Managed\System.dll (this message is harmless)
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 23ec -> priority: 1 
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 19.061092 ms
-
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 307.
-Total: 1.005273 ms (FindLiveObjects: 0.051803 ms CreateObjectMapping: 0.071840 ms MarkObjects: 0.722799 ms  DeleteObjects: 0.156875 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.186481 ms
-
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 307.
-Total: 0.899223 ms (FindLiveObjects: 0.045449 ms CreateObjectMapping: 0.046427 ms MarkObjects: 0.663665 ms  DeleteObjects: 0.141725 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.861001 ms
-
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 307.
-Total: 0.968131 ms (FindLiveObjects: 0.048870 ms CreateObjectMapping: 0.063043 ms MarkObjects: 0.735506 ms  DeleteObjects: 0.119733 ms)
-
+Platform assembly: C:\repos\PanGuDev\Compilado\maker_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2214 -> priority: 1 
+  Thread -> id: 28dc -> priority: 1 

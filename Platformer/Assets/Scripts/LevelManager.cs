@@ -54,7 +54,7 @@ public class LevelManager : MonoBehaviour  {
         } 
     }
 
-	//Load from Dick
+	//Load from Disc
     public void LoadSerialize()
     {
         BinaryFormatter formatter = new BinaryFormatter();
