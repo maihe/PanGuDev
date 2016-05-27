@@ -34,14 +34,14 @@ public class MenuManager : MonoBehaviour {
 
 	private int findSavedLevel(){
 		int total = 0;
-		string path = Application.dataPath;
-		path += "/../";
-		Debug.Log (Application.streamingAssetsPath);
-
-		Debug.Log (path);
+		string path;
+		//path = Application.dataPath;
+		//Debug.Log (Application.streamingAssetsPath);
+		path = "C:\\repos\\PanGuDev\\Platformer";
+		//Debug.Log (path);
 
 		DirectoryInfo di = new DirectoryInfo (path);
-		FileInfo[] fi = di.GetFiles("");
+		FileInfo[] fi = di.GetFiles("SavedLevel*.*");
 		foreach (FileInfo  f in fi) {
 			total++;
 			Debug.Log (f.FullName);
