@@ -16,30 +16,42 @@ public class LevelManager : MonoBehaviour  {
 
     public void Save() {        
 
-        //zerando as posicoes
-        //por enquanto esta porco, pois faco dois laços, 
-		//mas como no projeto final tera o griditem.cs cuidando de cada posicao nao tera este problema
+        //TODO by maiara - abrir popup, listar - reutilizar panel do menu principal
+		cleanSerializableObject ();
 
-		//for do item level sendo salvo em objeto "Serializavel"
-        for (int i = 0; i < levelData.m_data.Length; i++)
-        {
-            levelData.m_data[i] = 0;
-        }
-        
-		//for do array de digitos
-        foreach (var tile in gridManager.items)
-        {
-            if(tile != null) {             
-                levelData.m_data[
-					Convert.ToInt32(tile.transform.position.x) + 
-					(Convert.ToInt32(tile.transform.position.y) * levelData.m_width)
-                ] = Convert.ToInt32(tile.name.Substring(0, 1));
-            } //e se for?
-        }
+		saveLevelData ();
 
         SaveSerialize();
     }
 
+	private void cleanSerializableObject(){
+		try{
+			//zerando as posicoes
+			//por enquanto esta porco, pois faco dois laços, 
+			//mas como no projeto final tera o griditem.cs cuidando de cada posicao nao tera este problema
+			//for do item level sendo salvo em objeto "Serializavel"
+			for (int i = 0; i < levelData.m_data.Length; i++)
+			{
+				levelData.m_data[i] = 0;
+			}
+
+		}catch(Exception e){
+			Debug.Log ("[LevelManager] " + e.ToString);
+		}
+	}
+
+	private void saveLevelData(){
+		//for do array de digitos
+		foreach (var tile in gridManager.items)
+		{
+			if(tile != null) {             
+				levelData.m_data[
+					Convert.ToInt32(tile.transform.position.x) + 
+					(Convert.ToInt32(tile.transform.position.y) * levelData.m_width)
+				] = Convert.ToInt32(tile.name.Substring(0, 1));
+			} //e se for?
+		}
+	}
     public void SaveSerialize()
     {
         LevelDataSerialize levelDataSerialize = new LevelDataSerialize();
