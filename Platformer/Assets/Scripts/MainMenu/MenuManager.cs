@@ -5,9 +5,7 @@ using System.Collections;
 
 public class MenuManager : MonoBehaviour {
 
-	public LevelData[] levels;
-	public LevelData selectedLevel;
-	public Button[] Buttons;
+	private GameObject[] buttons;
 	public GameObject btnPrefab;
 	public RectTransform panel;
 	float offset;
@@ -15,25 +13,31 @@ public class MenuManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		int totalFiles = findSavedLevel();
-		//offset = btnPrefab.transform.
-		for(int i = 0; i < totalFiles; i++){
+		FileInfo[] files = findSavedLevel();
+		int total = 0;
+		foreach (FileInfo f in files) {
+			total++;
+			Debug.Log (f.FullName);
+		
 			GameObject objButton = (GameObject)Instantiate (btnPrefab);
 			objButton.transform.SetParent (panel, false);
 			objButton.transform.localScale = new Vector3 (1, 1, 1);
-			offset = i * objButton.GetComponent<RectTransform>().rect.height;
+			offset = total * objButton.GetComponent<RectTransform>().rect.height;
 
 			objButton.transform.position -= new Vector3(0,offset,0);
-			Button tmpButton = objButton.GetComponent<Button> ();
+			//not sure if it will be used yet
+			//buttons [i] = objButton;
+			objButton.GetComponentInChildren<Text> ().text = f.Name+ " " + f.LastWriteTime;
 
-			int tmp = i;
-			tmpButton.onClick.AddListener (() => ButtonClicked (tmp));
+
+			//Button tmpButton = objButton.GetComponent<Button> ();
+			//int tmp = i;
+			//tmpButton.onClick.AddListener (() => ButtonClicked (tmp));
 		}
 
 	}
 
-	private int findSavedLevel(){
-		int total = 0;
+	private FileInfo[] findSavedLevel(){
 		string path;
 		//path = Application.dataPath;
 		//Debug.Log (Application.streamingAssetsPath);
@@ -42,12 +46,9 @@ public class MenuManager : MonoBehaviour {
 
 		DirectoryInfo di = new DirectoryInfo (path);
 		FileInfo[] fi = di.GetFiles("SavedLevel*.*");
-		foreach (FileInfo  f in fi) {
-			total++;
-			Debug.Log (f.FullName);
-		}
-		Debug.Log (total);
-		return total;
+
+		Debug.Log ("Found "+ fi.Length +" saved files");
+		return fi;
 
 	}
 
