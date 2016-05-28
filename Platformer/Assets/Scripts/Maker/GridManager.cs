@@ -38,7 +38,7 @@ public class GridManager : MonoBehaviour {
         }        
     }
 
-	//TODO add possible conditions here
+	//TODO by maiara - add possible conditions here
 	bool canInstantiate(){
 		bool canInstantiate = true;
 
@@ -65,8 +65,9 @@ public class GridManager : MonoBehaviour {
     {
         //verifica se ja existe tile na posicao
 
-        if (ClickSelect() != null) return;        
-
+        if (ClickSelect() != null) return;   
+		//TODO by maiara - call modal 
+		if (tilePrefab == null) return;
         var tile = Instantiate(tilePrefab);
         var tileTransform = tile.GetComponent<Transform>();
 
@@ -106,5 +107,6 @@ public class GridManager : MonoBehaviour {
     public void setPrefab(string numberPrefab)
     {        
         tilePrefab = Resources.Load<Transform>("Tiles/" + numberPrefab);
+		Debug.Log ("current tile: "+ numberPrefab);
     }    
 }

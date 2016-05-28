@@ -65,12 +65,12 @@ public class LevelDataEditor : Editor
     }
 
     // Setup Block Size and Font    
-    float xWidth = Mathf.Max(position.width / Mathf.Max(1, level.m_width),//TODO - era min em vez de max
+    float xWidth = Mathf.Max(position.width / Mathf.Max(1, level.m_width),
                              position.height / Mathf.Max(1, level.m_width));
     GUIStyle myFontStyle = new GUIStyle(EditorStyles.textField);
     myFontStyle.fontSize = Mathf.FloorToInt(xWidth * 0.7f);
     
-    float offY = 1.2f; //TODO - eu que criei        
+    float offY = 1.2f; //TODO by ???- eu que criei        
 
     // Edit Blocks
     for (int x = 0; x < level.m_width; x++)
@@ -79,7 +79,7 @@ public class LevelDataEditor : Editor
       {
         level.m_data [x + y * level.m_width] = 
           EditorGUI.IntField(new Rect(position.x + xWidth * x,
-                                      offY * position.y - xWidth * y, //todo - alterei aqui e funcionou
+                                      offY * position.y - xWidth * y, //TODO by ??? - alterei aqui e funcionou
                                       xWidth,
                                       xWidth), 
                              level.m_data [x + y * level.m_width], myFontStyle);

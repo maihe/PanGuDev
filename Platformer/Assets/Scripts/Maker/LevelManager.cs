@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour  {
 
     public void Save() {        
 
-        // TODO zerando as posicoes
+        //zerando as posicoes
         //por enquanto esta porco, pois faco dois laços, 
 		//mas como no projeto final tera o griditem.cs cuidando de cada posicao nao tera este problema
 
