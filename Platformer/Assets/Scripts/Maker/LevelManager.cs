@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour  {
 			}
 
 		}catch(Exception e){
-			Debug.Log ("[LevelManager] " + e.ToString);
+			Debug.Log ("[LevelManager] " + e.ToString());
 		}
 	}
 
