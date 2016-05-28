@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour  {
     {
         //limpar para carregar corretamente
         DestroyLevel();
-        gridManager.InitializeItems();
+		gridManager.InitializeItems(levelData.m_width, levelData.m_height);
 
         //Carregando dados do arquivo salvo em disco
         LoadSerialize();

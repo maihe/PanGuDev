@@ -96,6 +96,13 @@ public class GridManager : MonoBehaviour {
         items = new GameObject[xSize, ySize];
     }
 
+
+	//Inicializa array de Cena
+	public void InitializeItems(int x, int y)
+	{
+		items = new GameObject[x, y];
+	}
+
     public void setPrefab(string numberPrefab)
     {        
         tilePrefab = Resources.Load<Transform>("Tiles/" + numberPrefab);
