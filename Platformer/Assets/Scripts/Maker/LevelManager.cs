@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour  {
 
     public LevelData levelData;    
     public GridManager gridManager;
+	public String dataFileName = "SavedLevel";
 
     public void Start()
     {
@@ -60,7 +61,7 @@ public class LevelManager : MonoBehaviour  {
         levelDataSerialize.m_data = levelData.m_data;
 
         BinaryFormatter formatter = new BinaryFormatter();
-        using (FileStream stream = new FileStream("SavedLevel", FileMode.Create))
+		using (FileStream stream = new FileStream(dataFileName, FileMode.Create))
         {
             formatter.Serialize(stream, levelDataSerialize);
         } 
@@ -70,9 +71,9 @@ public class LevelManager : MonoBehaviour  {
     public void LoadSerialize()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        if (File.Exists("SavedLevel"))
+		if (File.Exists(dataFileName))
         {
-            using (FileStream stream = new FileStream("SavedLevel", FileMode.Open))
+			using (FileStream stream = new FileStream(dataFileName, FileMode.Open))
             {
                 var levelDataSerialize = formatter.Deserialize(stream) as LevelDataSerialize;
                 levelData.m_height = levelDataSerialize.m_height;
