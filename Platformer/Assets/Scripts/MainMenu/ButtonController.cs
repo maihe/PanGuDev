@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class ButtonController : MonoBehaviour {
 
+	string btnName;
+
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		btnName = gameObject.GetComponent<Text> ().text;
 	}
 
-	//Opens the selected level
-	public void OpenGame(){
-		Application.LoadLevel("Maker");
+	//Set up level to be loaded
+	public void SetLevel(){
+		GameObject.FindObjectOfType<LevelProperties>().setLevelName(btnName.Split('_')[1]);
+		GameObject.FindObjectOfType<MenuManager> ().openMaker (btnName.Split('_')[1]);
+		//Application.LoadLevel("Maker");
 	}
 }

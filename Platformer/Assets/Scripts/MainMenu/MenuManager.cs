@@ -5,11 +5,17 @@ using System.Collections;
 
 public class MenuManager : MonoBehaviour {
 
-	private GameObject[] buttons;
 	public GameObject btnPrefab;
 	public RectTransform panel;
-	float offset;
+	private float offset;
+	private GameObject[] buttons;
+	private LevelProperties levelProperties;
 
+	// Runs once and before Starts
+	void Awake(){
+		DontDestroyOnLoad (levelProperties);
+		DontDestroyOnLoad (this);
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -28,11 +34,6 @@ public class MenuManager : MonoBehaviour {
 			//not sure if it will be used yet
 			//buttons [i] = objButton;
 			objButton.GetComponentInChildren<Text> ().text = f.Name+ " " + f.LastWriteTime;
-
-
-			//Button tmpButton = objButton.GetComponent<Button> ();
-			//int tmp = i;
-			//tmpButton.onClick.AddListener (() => ButtonClicked (tmp));
 		}
 
 	}
@@ -42,25 +43,18 @@ public class MenuManager : MonoBehaviour {
 		//path = Application.dataPath;
 		//Debug.Log (Application.streamingAssetsPath);
 		path = "C:\\repos\\PanGuDev\\Platformer";
-		//Debug.Log (path);
+
 
 		DirectoryInfo di = new DirectoryInfo (path);
-		FileInfo[] fi = di.GetFiles("SavedLevel*.*");
+		FileInfo[] fi = di.GetFiles(Constants.SAVED_FILE_PATTERN);
 
 		Debug.Log ("Found "+ fi.Length +" saved files");
 		return fi;
 
 	}
 
-	void ButtonClicked(int btnN){
-		Debug.Log ("Button clicked = " + btnN);
+	public void openMaker(string levelName){
+		Application.LoadLevel ("Maker");
 	}
-
-
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 
 }

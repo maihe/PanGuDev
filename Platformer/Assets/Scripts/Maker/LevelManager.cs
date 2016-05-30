@@ -10,6 +10,10 @@ public class LevelManager : MonoBehaviour  {
     public GridManager gridManager;
 	public String dataFileName = "SavedLevel";
 
+	public void Awake(){
+		dataFileName = GameObject.FindObjectOfType<LevelProperties>().getLevelName();
+	}
+
     public void Start()
     {
         Load();
@@ -71,16 +75,16 @@ public class LevelManager : MonoBehaviour  {
     public void LoadSerialize()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-		if (File.Exists(dataFileName))
-        {
-			using (FileStream stream = new FileStream(dataFileName, FileMode.Open))
-            {
-                var levelDataSerialize = formatter.Deserialize(stream) as LevelDataSerialize;
-                levelData.m_height = levelDataSerialize.m_height;
-                levelData.m_width = levelDataSerialize.m_width;
-                levelData.m_data = levelDataSerialize.m_data;
-            }
-        }        
+		if (File.Exists (dataFileName)) {
+			using (FileStream stream = new FileStream (dataFileName, FileMode.Open)) {
+				var levelDataSerialize = formatter.Deserialize (stream) as LevelDataSerialize;
+				levelData.m_height = levelDataSerialize.m_height;
+				levelData.m_width = levelDataSerialize.m_width;
+				levelData.m_data = levelDataSerialize.m_data;
+			}
+		} else {
+			Debug.Log ("Saved File not found");
+		}
     }   
 
     public void Load()

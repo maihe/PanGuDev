@@ -54,7 +54,9 @@
      <Compile Include="Assets\Scripts\Behaviours\PlayerController2D.cs" />
      <Compile Include="Assets\Scripts\Behaviours\ProjectileSightableWeapon.cs" />
      <Compile Include="Assets\Scripts\Behaviours\ProjectileWeapon.cs" />
+     <Compile Include="Assets\Scripts\Common\Constants.cs" />
      <Compile Include="Assets\Scripts\MainMenu\ButtonController.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\LevelProperties.cs" />
      <Compile Include="Assets\Scripts\MainMenu\MenuManager.cs" />
      <Compile Include="Assets\Scripts\Maker\GridItem.cs" />
      <Compile Include="Assets\Scripts\Maker\GridLines.cs" />
