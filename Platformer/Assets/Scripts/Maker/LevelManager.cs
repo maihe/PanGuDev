@@ -11,7 +11,8 @@ public class LevelManager : MonoBehaviour  {
 	public String dataFileName = "SavedLevel";
 
 	public void Awake(){
-		dataFileName = GameObject.FindObjectOfType<LevelProperties>().getLevelName();
+		dataFileName = ApplicationContext.Instance.getLevelToLoad ();
+		Debug.Log ("Save loaded " + dataFileName);
 	}
 
     public void Start()

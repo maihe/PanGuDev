@@ -9,11 +9,9 @@ public class MenuManager : MonoBehaviour {
 	public RectTransform panel;
 	private float offset;
 	private GameObject[] buttons;
-	private LevelProperties levelProperties;
 
 	// Runs once and before Starts
 	void Awake(){
-		DontDestroyOnLoad (levelProperties);
 		DontDestroyOnLoad (this);
 	}
 
@@ -34,6 +32,7 @@ public class MenuManager : MonoBehaviour {
 			//not sure if it will be used yet
 			//buttons [i] = objButton;
 			objButton.GetComponentInChildren<Text> ().text = f.Name+ " " + f.LastWriteTime;
+			objButton.GetComponentInChildren<ButtonController> ().setLevelName (f.Name);
 		}
 
 	}
@@ -51,10 +50,6 @@ public class MenuManager : MonoBehaviour {
 		Debug.Log ("Found "+ fi.Length +" saved files");
 		return fi;
 
-	}
-
-	public void openMaker(string levelName){
-		Application.LoadLevel ("Maker");
 	}
 
 }
