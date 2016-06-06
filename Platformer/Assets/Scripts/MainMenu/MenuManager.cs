@@ -6,7 +6,7 @@ using System.Collections;
 public class MenuManager : MonoBehaviour {
 
 	public GameObject btnPrefab;
-	public RectTransform panel;
+	public RectTransform panelLevels;
 	private float offset;
 	private GameObject[] buttons;
 
@@ -24,7 +24,7 @@ public class MenuManager : MonoBehaviour {
 			Debug.Log (f.FullName);
 		
 			GameObject objButton = (GameObject)Instantiate (btnPrefab);
-			objButton.transform.SetParent (panel, false);
+			objButton.transform.SetParent (panelLevels, false);
 			objButton.transform.localScale = new Vector3 (1, 1, 1);
 			offset = total * objButton.GetComponent<RectTransform>().rect.height;
 

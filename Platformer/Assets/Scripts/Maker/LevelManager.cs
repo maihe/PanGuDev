@@ -50,12 +50,14 @@ public class LevelManager : MonoBehaviour  {
 		//for do array de digitos
 		foreach (var tile in gridManager.items)
 		{
-			if(tile != null) {             
-				levelData.m_data[
-					Convert.ToInt32(tile.transform.position.x) + 
-					(Convert.ToInt32(tile.transform.position.y) * levelData.m_width)
-				] = Convert.ToInt32(tile.name.Substring(0, 1));
-			} //e se for?
+			if (tile != null) {             
+				levelData.m_data [
+					Convert.ToInt32 (tile.transform.position.x) +
+					(Convert.ToInt32 (tile.transform.position.y) * levelData.m_width)
+				] = Convert.ToInt32 (tile.name.Substring (0, 1));
+			} else {
+				Debug.Log ("tile is null");
+			}
 		}
 	}
     public void SaveSerialize()
