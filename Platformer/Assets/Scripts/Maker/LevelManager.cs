@@ -11,8 +11,9 @@ public class LevelManager : MonoBehaviour  {
 	public String dataFileName = "SavedLevel";
 
 	public void Awake(){
-		dataFileName = ApplicationContext.Instance.getLevelToLoad ();
-		Debug.Log ("Save loaded " + dataFileName);
+
+		String dataFileName_ = ApplicationContext.Instance.getLevelToLoad ();
+		Debug.Log ("Save loaded _" + dataFileName_);
 	}
 
     public void Start()

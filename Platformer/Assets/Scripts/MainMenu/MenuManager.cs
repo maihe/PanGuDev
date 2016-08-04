@@ -5,6 +5,7 @@ using System.Collections;
 
 public class MenuManager : MonoBehaviour {
 
+	public bool hidePanel = false;
 	public GameObject btnPrefab;
 	public RectTransform panelLevels;
 	private float offset;

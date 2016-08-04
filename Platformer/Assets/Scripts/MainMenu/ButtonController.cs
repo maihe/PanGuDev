@@ -10,6 +10,8 @@ public class ButtonController : MonoBehaviour {
 
 	//Set up level to be loaded
 	public void SetLevel(){
+		Debug.Log ("CLick");
+
 		//ApplicationContext.Instance.setLevelToLoad(btnName.Split('_')[1]);
 		ApplicationContext.Instance.setLevelToLoad(levelName);
 		SceneManager.LoadScene("Maker");
@@ -21,6 +23,7 @@ public class ButtonController : MonoBehaviour {
 		return levelName;
 	}
 	public void setLevelName(string name){
+		Debug.Log ("set name "+name);
 		this.levelName = name;
 	}
 
