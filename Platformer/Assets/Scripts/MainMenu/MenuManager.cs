@@ -7,7 +7,8 @@ public class MenuManager : MonoBehaviour {
 
 	public bool hidePanel = false;
 	public GameObject btnPrefab;
-	public RectTransform panelLevels;
+	public RectTransform panelLevelsDinamico;
+	public RectTransform panelLevelFixo;
 	private float offset;
 	private GameObject[] buttons;
 
@@ -18,14 +19,21 @@ public class MenuManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
+		//fillDinamicPanel ();
+		fillFixedPanel ();
+	}
+
+
+	private void fillDinamicPanel(){
 		FileInfo[] files = findSavedLevel();
 		int total = 0;
 		foreach (FileInfo f in files) {
 			total++;
 			Debug.Log (f.FullName);
-		
+
 			GameObject objButton = (GameObject)Instantiate (btnPrefab);
-			objButton.transform.SetParent (panelLevels, false);
+			objButton.transform.SetParent (panelLevelsDinamico, false);
 			objButton.transform.localScale = new Vector3 (1, 1, 1);
 			offset = total * objButton.GetComponent<RectTransform>().rect.height;
 
@@ -35,6 +43,21 @@ public class MenuManager : MonoBehaviour {
 			objButton.GetComponentInChildren<Text> ().text = f.Name+ " " + f.LastWriteTime;
 			objButton.GetComponentInChildren<ButtonController> ().setLevelName (f.Name);
 		}
+	}
+
+
+	private void fillFixedPanel(){
+		FileInfo[] files = findSavedLevel();
+		int total = 0;
+		Button[] btns = panelLevelFixo.GetComponentsInChildren<Button> ();
+		foreach (Button b in btns) {
+			if (total < files.Length) {
+				b.GetComponentInChildren<Text> ().text = files[total].Name+ " " + files[total].LastWriteTime;
+			} else {
+				b.GetComponentInChildren<Text> ().text = "Empty";
+			}
+			total++;
+		}
 
 	}
 
@@ -43,7 +66,6 @@ public class MenuManager : MonoBehaviour {
 		//path = Application.dataPath;
 		//Debug.Log (Application.streamingAssetsPath);
 		path = "C:\\repos\\PanGuDev\\Platformer";
-
 
 		DirectoryInfo di = new DirectoryInfo (path);
 		FileInfo[] fi = di.GetFiles(Constants.SAVED_FILE_PATTERN);
