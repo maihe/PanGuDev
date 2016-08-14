@@ -3,7 +3,9 @@ using System.Collections;
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+/*
+ * LevelManager gerencia leitura e escrita no arquivo de Save selecionado
+ */
 public class LevelManager : MonoBehaviour  {
 
     public LevelData levelData;    
@@ -126,6 +128,7 @@ public class LevelManager : MonoBehaviour  {
         }
     }
 
+	//TODO mover para MenuManager
     public void FecharGame()
     {        
         Application.Quit();
