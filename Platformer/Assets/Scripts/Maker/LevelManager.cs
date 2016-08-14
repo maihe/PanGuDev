@@ -10,12 +10,14 @@ public class LevelManager : MonoBehaviour  {
 
     public LevelData levelData;    
     public GridManager gridManager;
-	public String dataFileName = "SavedLevel";
+
+	//public String dataFileName = "SavedLevel";
+	private String dataFileName;
 
 	public void Awake(){
 
-		String dataFileName_ = ApplicationContext.Instance.getLevelToLoad ();
-		Debug.Log ("Save loaded _" + dataFileName_);
+		dataFileName = ApplicationContext.Instance.getLevelToLoad ();
+		Debug.Log ("Save loaded _" + dataFileName);
 	}
 
     public void Start()
