@@ -5,7 +5,6 @@ using System.Collections;
 
 public class MenuManager : MonoBehaviour {
 
-	public bool hidePanel = false;
 	public GameObject btnPrefab;
 	public RectTransform panelLevelsDinamico;
 	public RectTransform panelLevelFixo;
@@ -75,4 +74,18 @@ public class MenuManager : MonoBehaviour {
 
 	}
 
+
+	public void callPanelLevel(){
+		
+	}
+
+
+	public void callPanelHome(){
+		
+	}
+
+
+	public void quitGame(){
+		
+	}
 }
