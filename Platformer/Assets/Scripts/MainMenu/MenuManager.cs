@@ -6,13 +6,18 @@ using System.Collections;
 public class MenuManager : MonoBehaviour {
 
 	public GameObject btnPrefab;
+	//Dinamic Level is disabled for a while, it generate the buttons by the amount of levels saved
 	public RectTransform panelLevelsDinamico;
 	public RectTransform panelLevelFixo;
+	public RectTransform panelHome;
+	private Vector3 auxPosition;
 	private float offset;
 	private GameObject[] buttons;
 
 	// Runs once and before Starts
 	void Awake(){
+		 auxPosition = panelHome.position;
+
 		DontDestroyOnLoad (this);
 	}
 
@@ -62,6 +67,7 @@ public class MenuManager : MonoBehaviour {
 
 	private FileInfo[] findSavedLevel(){
 		string path;
+		//TODO change to get dynamic path soon
 		//path = Application.dataPath;
 		//Debug.Log (Application.streamingAssetsPath);
 		path = "C:\\repos\\PanGuDev\\Platformer";
@@ -76,16 +82,22 @@ public class MenuManager : MonoBehaviour {
 
 
 	public void callPanelLevel(){
-		
+		panelHome.position = panelLevelFixo.position;
+		panelLevelFixo.position = auxPosition;		
 	}
 
 
 	public void callPanelHome(){
-		
+		panelLevelFixo.position = panelHome.position;
+		panelHome.position = auxPosition;
 	}
 
 
 	public void quitGame(){
-		
+		#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+		#else
+		Application.Quit();
+		#endif
 	}
 }
